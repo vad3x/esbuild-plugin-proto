@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test should generate result given empty proto file 1`] = `
+"// test/cases/empty-proto/file.proto
+var import_proto_loader = require(\\"@grpc/proto-loader\\");
+var file_default = (0, import_proto_loader.fromJSON)({}, {});
+
+// test/cases/empty-proto/index.ts
+console.log(file_default);
+"
+`;
+
+exports[`test should generate result given message proto file 1`] = `
+"// test/cases/message-proto/file.proto
+var import_proto_loader = require(\\"@grpc/proto-loader\\");
+var file_default = (0, import_proto_loader.fromJSON)({
+  \\"nested\\": {
+    \\"Test0Response\\": {
+      \\"fields\\": {
+        \\"details\\": {
+          \\"type\\": \\"Test0Details\\",
+          \\"id\\": 1
+        }
+      }
+    },
+    \\"Test0Details\\": {
+      \\"fields\\": {
+        \\"id\\": {
+          \\"type\\": \\"int32\\",
+          \\"id\\": 1
+        },
+        \\"field0\\": {
+          \\"type\\": \\"string\\",
+          \\"id\\": 2
+        }
+      }
+    }
+  }
+}, {});
+
+// test/cases/message-proto/index.ts
+console.log(file_default);
+"
+`;
+
+exports[`test should generate result given multiple message proto files 1`] = `
+"// test/cases/multi-protos/file0.proto
+var import_proto_loader = require(\\"@grpc/proto-loader\\");
+var file0_default = (0, import_proto_loader.fromJSON)({
+  \\"nested\\": {
+    \\"Test0Response\\": {
+      \\"fields\\": {
+        \\"details\\": {
+          \\"type\\": \\"Test0Details\\",
+          \\"id\\": 1
+        }
+      }
+    },
+    \\"Test0Details\\": {
+      \\"fields\\": {
+        \\"id\\": {
+          \\"type\\": \\"int32\\",
+          \\"id\\": 1
+        },
+        \\"field0\\": {
+          \\"type\\": \\"string\\",
+          \\"id\\": 2
+        }
+      }
+    }
+  }
+}, {});
+
+// test/cases/multi-protos/file1.proto
+var import_proto_loader2 = require(\\"@grpc/proto-loader\\");
+var file1_default = (0, import_proto_loader2.fromJSON)({
+  \\"nested\\": {
+    \\"Test1Response\\": {
+      \\"fields\\": {
+        \\"details\\": {
+          \\"type\\": \\"Test1Details\\",
+          \\"id\\": 1
+        }
+      }
+    },
+    \\"Test1Details\\": {
+      \\"fields\\": {
+        \\"id\\": {
+          \\"type\\": \\"int32\\",
+          \\"id\\": 1
+        },
+        \\"field1\\": {
+          \\"type\\": \\"string\\",
+          \\"id\\": 2
+        }
+      }
+    }
+  }
+}, {});
+
+// test/cases/multi-protos/index.ts
+console.log(file0_default, file1_default);
+"
+`;
+
+exports[`test should generate result given proto files with import 1`] = `
+"// test/cases/import-proto/response.proto
+var import_proto_loader = require(\\"@grpc/proto-loader\\");
+var response_default = (0, import_proto_loader.fromJSON)({
+  \\"nested\\": {
+    \\"Test0Response\\": {
+      \\"fields\\": {
+        \\"details\\": {
+          \\"type\\": \\"Test0Details\\",
+          \\"id\\": 1
+        }
+      }
+    }
+  }
+}, {});
+
+// test/cases/import-proto/index.ts
+console.log(response_default);
+"
+`;

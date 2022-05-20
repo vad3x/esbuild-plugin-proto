@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Test1Response {
+  Test1Details details = 1;
+}
+
+message Test1Details {
+  int32 id = 1;
+  string field1 = 2;
+}

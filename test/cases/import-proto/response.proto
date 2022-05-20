@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "details.proto";
+
+message Test0Response {
+  Test0Details details = 1;
+}

@@ -1,0 +1,54 @@
+{
+  "name": "esbuild-plugin-proto",
+  "author": "Vadim Orekhov <vad3xs@gmail.com>",
+  "description": "An esbuild plugin to import proto files",
+  "license": "MIT",
+  "files": [
+    "lib/**/*"
+  ],
+  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "types": "./lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vad3x/esbuild-plugin-proto.git"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "build": "npm run clear:lib && tsc && cp ./src/proto.d.ts ./lib/proto.d.ts && ./scripts/build.ts",
+    "commit": "cz",
+    "commitlint": "commitlint --edit",
+    "lint": "eslint . --ext .js,.ts",
+    "clear": "rm -rf ./dist && rm -rf ./temp && npm run clear:lib",
+    "clear:lib": "rm -rf ./lib",
+    "release": "npm run build && semantic-release",
+    "test": "jest --verbose --coverage"
+  },
+  "peerDependencies": {
+    "@grpc/proto-loader": "^0.6.12",
+    "esbuild": ">=0.14.39"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-angular": "^13.1.0",
+    "@grpc/proto-loader": "^0.6.12",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^14.14.16",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "esbuild": "^0.14.39",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "semantic-release": "^19.0.2",
+    "ts-jest": "^28.0.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.7.2"
+  }
+}

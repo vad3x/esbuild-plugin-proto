@@ -1,0 +1,42 @@
+name: 'Pull Request'
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: yarn
+
+      - run: yarn install
+
+      - name: Lint
+        run: yarn lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: yarn
+
+      - name: Jest Coverage
+        uses: artiomtr/jest-coverage-report-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-manager: yarn
+          test-script: yarn test --coverageReporters="text" --coverageReporters="text-summary"

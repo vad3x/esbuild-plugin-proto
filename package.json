@@ -4,7 +4,8 @@
   "description": "An esbuild plugin to import proto files",
   "license": "MIT",
   "files": [
-    "lib/**/*"
+    "lib/**/*",
+    "proto.d.ts"
   ],
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "build": "npm run clear:lib && tsc && cp ./src/proto.d.ts ./lib/proto.d.ts && ./scripts/build.ts",
+    "build": "npm run clear:lib && tsc && ./scripts/build.ts",
     "commit": "cz",
     "commitlint": "commitlint --edit",
     "lint": "eslint . --ext .js,.ts",

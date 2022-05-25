@@ -5,7 +5,35 @@ exports[`#createTSProtoFileContent should generate result given empty proto 1`] 
 export default fromJSON({}, {});"
 `;
 
-exports[`#createTSProtoFileContent should generate result given valid proto passed woth options 1`] = `
+exports[`#createTSProtoFileContent should generate result given no options passed 1`] = `
+"import { fromJSON } from '@grpc/proto-loader';
+export default fromJSON({
+  \\"nested\\": {
+    \\"Test0Response\\": {
+      \\"fields\\": {
+        \\"details\\": {
+          \\"type\\": \\"Test0Details\\",
+          \\"id\\": 1
+        }
+      }
+    },
+    \\"Test0Details\\": {
+      \\"fields\\": {
+        \\"id\\": {
+          \\"type\\": \\"int32\\",
+          \\"id\\": 1
+        },
+        \\"field0\\": {
+          \\"type\\": \\"string\\",
+          \\"id\\": 2
+        }
+      }
+    }
+  }
+}, undefined);"
+`;
+
+exports[`#createTSProtoFileContent should generate result given valid proto passed with options 1`] = `
 "import { fromJSON } from '@grpc/proto-loader';
 export default fromJSON({
   \\"nested\\": {

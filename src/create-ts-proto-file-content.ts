@@ -3,7 +3,7 @@ import type { Options } from '@grpc/proto-loader';
 
 export function createTSProtoFileContent(
   protoFileContent: string,
-  options: Options
+  options?: Options
 ): string {
   const parsed = protobuf.parse(protoFileContent);
 
@@ -13,6 +13,6 @@ export function createTSProtoFileContent(
       parsed.root.toJSON(),
       undefined,
       2
-    )}, ${JSON.stringify(options, undefined, 2)});`,
+    )}, ${options ? JSON.stringify(options, undefined, 2) : undefined});`,
   ].join('\n');
 }

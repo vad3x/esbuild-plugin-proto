@@ -6,7 +6,7 @@ import { createTSProtoFileContent } from './create-ts-proto-file-content';
 
 export type ProtoPluginOptions = Options;
 
-export function protoPlugin(options: ProtoPluginOptions): Plugin {
+export function protoPlugin(options?: ProtoPluginOptions): Plugin {
   return {
     name: 'proto',
     setup(build) {

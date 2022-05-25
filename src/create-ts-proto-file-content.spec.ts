@@ -41,7 +41,7 @@ describe('#createTSProtoFileContent', () => {
     expect(result).toMatchSnapshot();
   });
 
-  test('should generate result given valid proto passed woth options', async () => {
+  test('should generate result given valid proto passed with options', async () => {
     // arrange
     const protoFileContentStub = `
       syntax = "proto3";
@@ -62,6 +62,28 @@ describe('#createTSProtoFileContent', () => {
 
     // act
     const result = createTSProtoFileContent(protoFileContentStub, optionsStub);
+
+    // assert
+    expect(result).toMatchSnapshot();
+  });
+
+  test('should generate result given no options passed', async () => {
+    // arrange
+    const protoFileContentStub = `
+      syntax = "proto3";
+
+      message Test0Response {
+        Test0Details details = 1;
+      }
+
+      message Test0Details {
+        int32 id = 1;
+        string field0 = 2;
+      }
+    `;
+
+    // act
+    const result = createTSProtoFileContent(protoFileContentStub);
 
     // assert
     expect(result).toMatchSnapshot();
